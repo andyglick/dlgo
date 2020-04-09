@@ -184,8 +184,7 @@ class GameState:
                     return True
                 else:
                     past_state = past_state.previous_state
-
-        return False
+            return False
 
     def is_valid_move(self, move):
         if self.is_over():
@@ -194,5 +193,7 @@ class GameState:
             return True
 
         return (
-            self.board.get(move.point)
+            self.board.get(move.point) is None and
+            not self.is_move_self_capture(self.next_player, move) and
+            not self.does_move_violate_ko(self.next_player, move)
         )
