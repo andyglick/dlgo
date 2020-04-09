@@ -1,5 +1,5 @@
 from dlgo import goboard_slow
-from dlgo.utils import print_board, print_move
+from dlgo.utils import print_board
 
 
 def main():
