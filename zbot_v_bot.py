@@ -1,6 +1,6 @@
 from dlgo import agent
 from dlgo.agent.naive import RandomBot
-from dlgo import goboard_slow
+from dlgo import goboard
 from dlgo import gotypes
 from dlgo.utils import print_board, print_move
 import time
@@ -10,7 +10,7 @@ def main():
     start = time.process_time()
     start_perf = time.perf_counter_ns()
     board_size = 9
-    game = goboard_slow.GameState.new_game(board_size)
+    game = goboard.GameState.new_game(board_size)
     bots = {
         gotypes.Player.black: agent.naive.RandomBot(),
         gotypes.Player.white: agent.naive.RandomBot(),
@@ -24,8 +24,8 @@ def main():
         game = game.apply_move(bot_move)
     end = time.process_time()
     end_perf = time.perf_counter_ns()
-    print ("bot: elapsed time is " + str(end - start))
-    print("bot_perf: elapsed time is " + str(end_perf - start_perf))
+    print("zbot: elapsed time is " + str(end - start))
+    print("zbot_perf: elapsed time is " + str(end_perf - start_perf))
 
 if __name__ == '__main__':
     main()
